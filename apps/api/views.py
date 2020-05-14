@@ -8,7 +8,7 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        queryset = Workout.objects.all().filter(owner=self.request.user)
+        queryset = Workout.objects.filter(owner=self.request.user)
         return queryset
 
     serializer_class = WorkoutSerializer
